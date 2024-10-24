@@ -3,7 +3,7 @@ console.log("Hello world");
 function getComputerChoice()
 {
     let randomNumber = Math.floor(Math.random() * 100) + 1;
-    console.log(randomNumber);
+    //console.log(randomNumber);
     if(randomNumber < 33)
     {
         randomNumber = "rock";
@@ -16,7 +16,10 @@ function getComputerChoice()
     {
         randomNumber = "paper";
     }
+    //console.log(randomNumber);
+    console.log("Computer choice");
     console.log(randomNumber);
+    console.log(" ");
     return randomNumber;
 }
 
@@ -57,8 +60,9 @@ function GetHumanChoice()
         sign = "rock";
         alert("Default Rock");
     }*/
-    console.log("sign");
+    console.log("Human choice");
     console.log(sign);
+    console.log(" ");
     return sign;
 
 }
@@ -120,7 +124,7 @@ function playRound(pRcc, pRhc)
     {
          result = "ccwin";
     }
-    console.log(result);
+    // console.log(result);
     return result;
 
 }
@@ -131,11 +135,11 @@ function playGame(){
 
     
     let hc = GetHumanChoice();
-    console.log("hc");
-    console.log(hc);
+    //console.log("hc");
+    //console.log(hc);
     let cc = getComputerChoice();
-    console.log("cc");
-    console.log(cc);
+    //console.log("cc");
+    //console.log(cc);
 
     let roundResP = playRound(cc, hc);
     return roundResP;
@@ -166,6 +170,7 @@ function MWmain()
 
             console.log("score is computer: " + computerScore + ", human:" + humanScore);
             //console.log("score is computer: " + cScoreTemp + ", human:" + hScoreTemp);
+            console.log(" ");
            
     }
     console.log("GAME OVER!")
