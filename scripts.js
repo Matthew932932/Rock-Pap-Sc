@@ -1,6 +1,6 @@
 console.log("Hello world");
 
-GetHumanChoice();
+
 
 function getComputerChoice()
 {
@@ -25,10 +25,8 @@ function getComputerChoice()
     return randomNumber;
 }
 
-function GetHumanChoice()
-{
-    
-    let sign = ""; //prompt("Rock, Paper or Scissors?");
+
+let sign = ""; //prompt("Rock, Paper or Scissors?");
     let compCh = "";
     let pRes = "";
     // console.log("sign1.5");
@@ -46,90 +44,113 @@ function GetHumanChoice()
     const paperB = document.querySelector('#paper');
     const scissorsB = document.querySelector('#scissors');
 
+function humanClick(choice)
+{
+    const divItem = document.createElement('div');
+    divItem.setAttribute("class", "user-choice");
+    divItem.textContent = choice;
+    sect.appendChild(divItem);
+    //const spanItem = document.createElement('span');
+    //spanItem.textContent = "Rock";
+    console.log("getting here");
+    sign = choice;
+    console.log("Human choice");
+    console.log(sign);
+    console.log(" ");
+    compCh = getComputerChoice();
+    roundRes = playRound(compCh, sign);
+    
+    games = games+ 1;
+
+
+// for(let i = 0; i < 5; i++)
+// {
+    
+    if(roundRes === "ccwin")
+        {
+            computerScore++;
+        }
+        else if (roundRes === "cclose")
+        {
+            humanScore++;
+        }
+        else {
+            const divItemDraw = document.createElement('div');
+        divItemDraw.setAttribute("class", "draw");
+        divItemDraw.textContent = "Draw";
+            console.log("********Draw*******");
+            sect.appendChild(divItemDraw);
+        }
+        //let cScoreTemp=computerScore;
+        //let hScoreTemp=humanScore;
+        const divItem2 = document.createElement('div');
+        divItem2.setAttribute("class", "score");
+        divItem2.textContent = "score is computer: " + computerScore + ", human:" + humanScore;
+        sect.appendChild(divItem2);
+        
+        console.log("score is computer: " + computerScore + ", human:" + humanScore);
+        //console.log("score is computer: " + cScoreTemp + ", human:" + hScoreTemp);
+        console.log(" ");
+       
+// }
+if(games === 5)
+{
+    
+    sect.removeChild(rockB);
+    sect.removeChild(paperB);
+    sect.removeChild(scissorsB);
+
+    const divItemFin = document.createElement('div');
+    divItemFin.setAttribute("class", "final-res");
+
+    console.log("GAME OVER!")
+    console.log(typeof humanScore)
+    if(computerScore > humanScore)
+    {
+        
+        divItemFin.textContent = "game over, YOU DIED!!!!!";
+       
+        console.log("YOU DIED!!!!!");
+    }
+    else if(humanScore > computerScore)
+    {
+        console.log("You killed computer!!");
+        divItemFin.textContent = "game over, You killed computer!!";
+    }
+    else {
+        console.log("Game Drawn");
+        divItemFin.textContent = "game over, Game Drawn";
+}
+
+
+
+sect.appendChild(divItemFin);
+
+}
+}
+
+function GetHumanChoice()
+{
+    
+    
+    let ghcChoice = "";
     
 
     rockB.addEventListener('click', () => {
-        const divItem = document.createElement('div');
-        divItem.setAttribute("class", "user-choice");
-        divItem.textContent = "Rock";
-        sect.appendChild(divItem);
-        //const spanItem = document.createElement('span');
-        //spanItem.textContent = "Rock";
-        console.log("getting here");
-        sign = "rock";
-        console.log("Human choice");
-        console.log(sign);
-        console.log(" ");
-        compCh = getComputerChoice();
-        roundRes = playRound(compCh, sign);
-        
-        games = games+ 1;
-    
+        ghcChoice = "rock";
+        humanClick(ghcChoice);
 
-    // for(let i = 0; i < 5; i++)
-    // {
-        
-        if(roundRes === "ccwin")
-            {
-                computerScore++;
-            }
-            else if (roundRes === "cclose")
-            {
-                humanScore++;
-            }
-            else {
-                const divItemDraw = document.createElement('div');
-            divItemDraw.setAttribute("class", "draw");
-            divItemDraw.textContent = "Draw";
-                console.log("********Draw*******");
-                sect.appendChild(divItemDraw);
-            }
-            //let cScoreTemp=computerScore;
-            //let hScoreTemp=humanScore;
-            const divItem2 = document.createElement('div');
-            divItem2.setAttribute("class", "score");
-            divItem2.textContent = "score is computer: " + computerScore + ", human:" + humanScore;
-            sect.appendChild(divItem2);
-            
-            console.log("score is computer: " + computerScore + ", human:" + humanScore);
-            //console.log("score is computer: " + cScoreTemp + ", human:" + hScoreTemp);
-            console.log(" ");
-           
-    // }
-    if(games === 5)
-    {
-        
-        sect.removeChild(rockB);
-        sect.removeChild(paperB);
-        sect.removeChild(scissorsB);
+    });
 
-        const divItemFin = document.createElement('div');
-        divItemFin.setAttribute("class", "final-res");
+    paperB.addEventListener('click', () => {
+        ghcChoice = "paper";
+        humanClick(ghcChoice);
 
-        console.log("GAME OVER!")
-        console.log(typeof humanScore)
-        if(computerScore > humanScore)
-        {
-            
-            divItemFin.textContent = "game over, YOU DIED!!!!!";
-           
-            console.log("YOU DIED!!!!!");
-        }
-        else if(humanScore > computerScore)
-        {
-            console.log("You killed computer!!");
-            divItemFin.textContent = "game over, You killed computer!!";
-        }
-        else {
-            console.log("Game Drawn");
-            divItemFin.textContent = "game over, Game Drawn";
-    }
+    });
 
-    
-    
-    sect.appendChild(divItemFin);
-
-    }
+    scissorsB.addEventListener('click', () => {
+        ghcChoice = "scissors";
+        humanClick(ghcChoice);
 
     });
 
@@ -296,6 +317,9 @@ function MWmain()
 }
 
 //MWmain();
+
+
+GetHumanChoice();
 
 
 
