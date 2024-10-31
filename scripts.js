@@ -134,14 +134,14 @@ function playGame(){
     
 
     
-    let hc = GetHumanChoice();
+    //let hc = GetHumanChoice();
     //console.log("hc");
     //console.log(hc);
-    let cc = getComputerChoice();
+    //let cc = getComputerChoice();
     //console.log("cc");
     //console.log(cc);
 
-    let roundResP = playRound(cc, hc);
+    //let roundResP = playRound(cc, hc);
     return roundResP;
     }
 
@@ -150,10 +150,25 @@ function MWmain()
     let humanScore = 0;
     let computerScore = 0;
     let roundRes = "start";
+
+    const sect = document.querySelector('.MainCont');
     
-    for(let i = 0; i < 5; i++)
-    {
-        roundRes = playGame();
+    const rockB = document.querySelector('#rock');
+    rockB.addEventListener('click', () => {
+        const divItem = document.createElement('div');
+        divItem.setAttribute("class", "user-choice");
+        divItem.textContent = "Rock";
+        sect.appendChild(divItem);
+        //const spanItem = document.createElement('span');
+        //spanItem.textContent = "Rock";
+        console.log("getting here");
+        
+        
+    });
+
+    // for(let i = 0; i < 5; i++)
+    // {
+        /*roundRes = playGame();
         if(roundRes === "ccwin")
             {
                 computerScore++;
@@ -170,12 +185,12 @@ function MWmain()
 
             console.log("score is computer: " + computerScore + ", human:" + humanScore);
             //console.log("score is computer: " + cScoreTemp + ", human:" + hScoreTemp);
-            console.log(" ");
+            console.log(" ");*/
            
-    }
+    // }
     console.log("GAME OVER!")
     //console.log(typeof humanScore)
-    if(computerScore > humanScore)
+    /*if(computerScore > humanScore)
     {
         console.log("YOU DIED!!!!!");
     }
@@ -185,7 +200,7 @@ function MWmain()
     }
     else {
         console.log("Game Drawn");
-    }
+    }*/
 }
 
 MWmain();
