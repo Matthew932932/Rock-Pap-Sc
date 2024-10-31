@@ -1,0 +1,28 @@
+.MainCont {
+    /* background-color: black; */
+    color: white;
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    margin-bottom: 20px;
+}
+
+.user-choice, .score {
+    color: white;
+    background-color: purple;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.final-res {
+    color: white;
+    background-color: green;
+    padding: 30px;
+    width: 260px;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
